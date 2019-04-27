@@ -17,4 +17,4 @@ export QT_QPA_PLATFORM=xcb
 export EDITOR=nvim
 
 # aliases
-
+alias vim=nvim

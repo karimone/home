@@ -1,10 +1,29 @@
-# Default config for sway
-#
-# Copy this to ~/.config/sway/config and edit it to your liking.
-#
-# Read `man 5 sway` for a complete reference.
 
-### Variables
+## Borders
+new_window pixel 2
+new_float pixel 1
+
+# gaps
+smart_gaps on
+smart_borders on
+set $default_gaps_inner 10
+set $default_gaps_outer 0
+gaps inner $default_gaps_inner
+gaps outer $default_gaps_outer
+
+
+# font
+font pango:DejaVu Sans Mono 10
+
+# colors
+#set_from_resource       $em    cursorColor   #ff00ff
+#set_from_resource       $fg    foreground    #ff00ff
+#set_from_resource       $bg    background    #ff00ff
+#                       border backgr foregr indctr
+#client.focused          $bg    $em    $fg    $fg
+#client.focused_inactive	$bg    $bg    $bg    $bg
+#client.unfocused        $bg    $bg    $bg    $bg
+#client.urgent           $bg    $bg    $bg    $bg
 
 # Logo key. Use Mod1 for Alt.
 set $mod Mod4
@@ -16,7 +35,7 @@ set $up k
 set $right l
 
 # Terminator! (I'll be back)
-set $term terminator
+set $term termite
 
 # Rofi application luncher
 set $menu rofi -show drun
@@ -160,8 +179,8 @@ input "Logitech_USB_Receiver_Mouse" {
 
     # Switch the current container between different layout styles
     bindsym $mod+s layout stacking
-    bindsym $mod+w layout tabbed
-    bindsym $mod+e layout toggle split
+    bindsym $mod+t layout tabbed
+    bindsym $mod+p layout toggle split
 
     # Make the current focus fullscreen
     bindsym $mod+f fullscreen
@@ -231,14 +250,10 @@ bar {
 # Mako Notification Deamon
 exec mako bottom-right & disown
 
-for_window [app_id="^.*"] border pixel 0
-for_window [class="^.*"] border pixel 0
+#for_window [app_id="^.*"] border pixel 0
+#for_window [class="^.*"] border pixel 0
 #for_window [class="^.*"] opacity 0.4
 
-# gaps
-smart_gaps on
-smart_borders no_gaps
-gaps inner 10
 
 # class                 	border  backgr. text    indicator child_border
 #client.focused           	#FF5C57 #FF5C57 #FF5C57 #FF5C57   #FF5C57
@@ -250,4 +265,13 @@ gaps inner 10
 
 #client.background 	#fffffff
 
+# session
+mode "(L)ock, (S)ignout, (R)eboot, (P)oweroff" {
+    bindsym $mod+l exec ~/.i3/scripts/lock
+    bindsym $mod+r exec systemctl reboot
+    bindsym $mod+s exit
+    bindsym $mod+p exec systemctl shutdown
+    bindsym Escape mode "default"
+}
+bindsym $mod+Shift+s mode "(L)ock, (S)ignout, (R)eboot, (P)oweroff"
 
