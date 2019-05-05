@@ -38,40 +38,6 @@ scrollback_lines = 10000
 # "off", "left" or "right"
 #scrollbar = off
 
-[colors]
-# If both of these are unset, cursor falls back to the foreground color,
-# and cursor_foreground falls back to the background color.
-cursor = #dcdccc
-cursor_foreground = #dcdccc
-
-foreground = #dcdccc
-foreground_bold = #ffffff
-background = #3f3f3f
-
-# 20% background transparency (requires a compositor)
-background = rgba(63, 63, 63, 0.9)
-
-# If unset, will reverse foreground and background
-highlight = #2f2f2f
-
-# Colors from color0 to color254 can be set
-color0 = #3f3f3f
-color1 = #705050
-color2 = #60b48a
-color3 = #dfaf8f
-color4 = #506070
-color5 = #dc8cc3
-color6 = #8cd0d3
-color7 = #dcdccc
-color8 = #709080
-color9 = #dca3a3
-color10 = #c3bf9f
-color11 = #f0dfaf
-color12 = #94bff3
-color13 = #ec93d3
-color14 = #93e0e3
-color15 = #ffffff
-
 [hints]
 font = Monospace 12
 #foreground = #dcdccc
@@ -84,3 +50,54 @@ border_width = 2.0
 roundness = 10.0
 
 # vim: ft=dosini cms=#%s
+
+[colors]
+# Base16 Mocha
+# Author: Chris Kempson (http://chriskempson.com)
+
+foreground          = #d0c8c6
+foreground_bold     = #e9e1dd
+cursor              = #e9e1dd
+cursor_foreground   = #3B3228
+background          = rgba(59, 50, 40, 0.90)
+
+# 16 color space
+
+# Black, Gray, Silver, White
+color0  = #3B3228
+color8  = #7e705a
+color7  = #d0c8c6
+color15 = #f5eeeb
+
+# Red
+color1  = #cb6077
+color9  = #cb6077
+
+# Green
+color2  = #beb55b
+color10 = #beb55b
+
+# Yellow
+color3  = #f4bc87
+color11 = #f4bc87
+
+# Blue
+color4  = #8ab3b5
+color12 = #8ab3b5
+
+# Purple
+color5  = #a89bb9
+color13 = #a89bb9
+
+# Teal
+color6  = #7bbda4
+color14 = #7bbda4
+
+# Extra colors
+color16 = #d28b71
+color17 = #bb9584
+color18 = #534636
+color19 = #645240
+color20 = #b8afad
+color21 = #e9e1dd
+

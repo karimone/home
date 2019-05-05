@@ -35,7 +35,7 @@ set $up k
 set $right l
 
 # Terminator! (I'll be back)
-set $term termite
+set $term terminator
 
 # Rofi application luncher
 set $menu rofi -show drun
