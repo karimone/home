@@ -1,15 +1,14 @@
-
 # to get the transparency
 exec xcompmgr -c -f -n
 
 ## Borders
-new_window pixel 2
+new_window pixel 3
 new_float pixel 1
 
 # gaps
 smart_gaps on
 smart_borders on
-set $default_gaps_inner 10
+set $default_gaps_inner 20
 set $default_gaps_outer 0
 gaps inner $default_gaps_inner
 gaps outer $default_gaps_outer
@@ -142,6 +141,9 @@ exec --no-startup-id nitrogen --restore
     bindsym $mod+b splith
     bindsym $mod+v splitv
 
+    bindsym $mod+Shift+b splith; exec $term
+    bindsym $mod+Shift+v splitv; exec $term
+
     # Switch the current container between different layout styles
     bindsym $mod+s layout stacking
     bindsym $mod+t layout tabbed
@@ -200,16 +202,7 @@ bindsym $mod+r mode "resize"
 # Bumblebee status bar
 bar {
     position top
-
-    colors {
-        statusline #ffffff
-        background #000000
-        inactive_workspace #32323200 #32323200 #5c5c5c
-    }
-    status_command /opt/bumblebee-status/bumblebee-status \
-	-m cpu memory battery date time pasink pasource dnf \
-	-p time.format="%H:%M CW %V" date.format="%a, %b %d %Y" \
-	-t solarized
+    status_command i3blocks
 }
 
 # Mako Notification Deamon
@@ -238,5 +231,8 @@ mode "(L)ock, (S)ignout, (R)eboot, (P)oweroff" {
     bindsym $mod+p exec systemctl shutdown
     bindsym Escape mode "default"
 }
-bindsym $mod+Shift+s mode "(L)ock, (S)ignout, (R)eboot, (P)oweroff"
+bindsym $mod+Shift+s mode "(L)ock, (S)ignout, (R)eboot, (P)oweroff" 
+
+bindsym --release Caps_Lock exec pkill -SIGRTMIN+10 i3blocks
+bindsym --release Num_Lock  exec pkill -SIGRTMIN+10 i3blocks
 
