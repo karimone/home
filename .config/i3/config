@@ -1,6 +1,9 @@
 # to get the transparency
 exec xcompmgr -c -f -n
 
+# set the wallpaper
+exec xwallpaper --stretch  ~/Documents/personal/wallpapers/land001.jpg
+
 ## Borders
 new_window pixel 3
 new_float pixel 1
@@ -15,7 +18,7 @@ gaps outer $default_gaps_outer
 
 
 # font
-font pango:DejaVu Sans Mono 10
+font pango:DejaVu Sans Mono 12
 
 # colors
 #set_from_resource       $em    cursorColor   #ff00ff

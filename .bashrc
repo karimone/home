@@ -18,3 +18,8 @@ export EDITOR=nvim
 
 # aliases
 alias vim=nvim
+
+# Source global definitions
+if [ -f .bash_aliases ]; then
+	. .bash_aliases
+fi
