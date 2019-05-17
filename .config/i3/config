@@ -195,9 +195,6 @@ font pango:DejaVu Sans Mono 12
     bindsym $mod+b splith
     bindsym $mod+v splitv
 
-    bindsym $mod+Shift+b splith; exec $term
-    bindsym $mod+Shift+v splitv; exec $term
-
     # Switch the current container between different layout styles
     bindsym $mod+s layout stacking
     bindsym $mod+t layout tabbed
@@ -237,14 +234,14 @@ mode "resize" {
     bindsym $left resize shrink width 10px
     bindsym $right resize grow width 10px
 
-    bindsym $up resize shrink height 5px
-    bindsym $down resize grow height 5px
+    bindsym $up resize grow height 5px
+    bindsym $down resize shrink height 5px
 
     # ditto, with arrow keys
-    bindsym Left resize shrink width 10px
-    bindsym Down resize grow height 10px
-    bindsym Up resize shrink height 10px
-    bindsym Right resize grow width 10px
+    #bindsym Left resize shrink width 10px
+    #bindsym Down resize grow height 10px
+    #bindsym Up resize shrink height 10px
+    #bindsym Right resize grow width 10px
 
     # return to default mode
     bindsym Return mode "default"
@@ -290,4 +287,3 @@ bindsym $mod+Shift+s mode "(L)ock, (S)ignout, (R)eboot, (P)oweroff"
 
 bindsym --release Caps_Lock exec pkill -SIGRTMIN+10 i3blocks
 bindsym --release Num_Lock  exec pkill -SIGRTMIN+10 i3blocks
-

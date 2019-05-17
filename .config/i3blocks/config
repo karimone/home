@@ -1,3 +1,8 @@
+[keyindicator]
+KEY=CAPS
+markup=pango
+interval=once
+signal=11
 
 [restart]
 full_text=Restart
