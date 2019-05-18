@@ -1,22 +1,43 @@
-http://andrearusso1979.blogspot.com/feeds/posts/default "Blogs"
-http://beri.it/feed/ "Blogs"
-http://showrss.info/user/113566.rss?magnets=true&namespaces=true&name=null&quality=null&re=null "Downloads"
-https://feeds.feedburner.com/macbed "Downloads-Mac"
-https://feeds.feedburner.com/appdn "Downloads-Mac"
-http://attivissimo.blogspot.com/atom.xml "News-IT"
-http://feeds.blogo.it/melablog/it "News-Mac"
-http://punto-informatico.it/fader/pixml2.xml "News-IT"
-http://www.zeusnews.it/zn-ticker-rss.php?nletter=907&nnews=10&headers=1 "News-IT"
-https://www.ilfattoquotidiano.it/feed/ "News"
-http://www.targatocn.it/rss.xml "News"
-http://www.salvatorebrizzi.com/feeds/posts/default?alt=rss "Inner"
-http://www.djangoproject.com/rss/community/ "Python-Django"
-http://feeds.feedburner.com/pyconit "Python"
-http://www.python.it/blog/feeds/latestposts/ "Python"
-https://realpython.com/atom.xml "Python"
-http://feeds.feedburner.com/TheMouseVsThePython "Python"
-http://www.seriangolo.it/feed/ "TV"
-https://www.youtube.com/feeds/videos.xml?channel_id=UCSKSPISyIsexROCyKZLkD9w "Youtube"
-https://www.youtube.com/feeds/videos.xml?channel_id=UC2eYFnH61tmytImy1mTYvhA "Linux"
-https://www.youtube.com/feeds/videos.xml?playlist_id=PLTQLA-sdhEzSILtUoPpGXdZ8G-HuSeYy3 "Italia"
-https://www.youtube.com/feeds/videos.xml?playlist_id=PLTQLA-sdhEzThD1P6nmRQuJkZiIIHDMP5 "Italia"
+http://andrearusso1979.blogspot.com/feeds/posts/default Blogs "~Andrea Russo"
+http://beri.it/feed/ Blogs
+http://showrss.info/user/113566.rss?magnets=true&namespaces=true&name=null&quality=null&re=null "~Series TV" Downloads TV
+https://feeds.feedburner.com/macbed "~MacBed" Downloads Apple
+https://feeds.feedburner.com/appdn "~AppBed" Downloads Apple
+http://attivissimo.blogspot.com/atom.xml News IT"
+http://feeds.blogo.it/melablog/it News Apple
+http://punto-informatico.it/fader/pixml2.xml News IT
+http://www.zeusnews.it/zn-ticker-rss.php?nletter=907&nnews=10&headers=1 News IT
+http://www.targatocn.it/rss.xml News Italia
+http://www.salvatorebrizzi.com/feeds/posts/default?alt=rss Inner
+http://www.djangoproject.com/rss/community/ "~Django Articles" Python Django
+http://feeds.feedburner.com/pyconit Python
+http://www.python.it/blog/feeds/latestposts/ Python
+https://realpython.com/atom.xml Python
+http://feeds.feedburner.com/TheMouseVsThePython Python
+https://blog.jetbrains.com/pycharm/feed/ Python
+http://www.seriangolo.it/feed/ TV
+
+https://www.youtube.com/feeds/videos.xml?channel_id=UCSKSPISyIsexROCyKZLkD9w Youtube
+https://www.youtube.com/feeds/videos.xml?channel_id=UC2eYFnH61tmytImy1mTYvhA Linux
+https://www.youtube.com/feeds/videos.xml?channel_id=UCZrrEuHiQjN2CUo84g5tk7w Linux
+https://www.youtube.com/feeds/videos.xml?playlist_id=PLTQLA-sdhEzSILtUoPpGXdZ8G-HuSeYy3 Italia
+https://www.youtube.com/feeds/videos.xml?playlist_id=PLTQLA-sdhEzThD1P6nmRQuJkZiIIHDMP5 Italia
+https://www.youtube.com/feeds/videos.xml?user=natalinobalasso Youtube
+https://www.youtube.com/feeds/videos.xml?channel_id=UC5Tp6Wb-Ay4ksrhRmyQNYFg Italia
+https://www.youtube.com/feeds/videos.xml?user=yotobi Cazzeggio
+https://www.youtube.com/feeds/videos.xml?user=videodiroberto Cazzeggio
+https://www.youtube.com/feeds/videos.xml?user=la7attualita Italia
+https://www.youtube.com/feeds/videos.xml?channel_id=UCmYTgpKxd-QOJCPDrmaXuqQ Musica
+
+https://www.archlinux.org/feeds/news/ Arch Linux
+https://lukesmith.xyz/rss.xml Blogs Linux
+https://status.developer.intuit.com/history.rss "~Intuit Status" ExpenseCheck
+http://www.severe-weather.eu/feed/ Wather
+
+https://www.radio24.ilsole24ore.com/podcast/melog.xml Podcast
+https://www.youtube.com/feeds/videos.xml?channel_id=UC3s0BtrBJpwNDaflRSoiieQ Linux
+
+https://zapier.com/engine/rss/4444797/twitter/ Twitter
+http://feeds.sbs.com.au/sbs-italian Australia
+
+http://iphonehacks.com/feed Apple
