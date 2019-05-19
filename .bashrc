@@ -16,10 +16,7 @@ export PATH
 export QT_QPA_PLATFORM=xcb
 export EDITOR=nvim
 
-# aliases
-alias vim=nvim
-
 # Source global definitions
-if [ -f .bash_aliases ]; then
-	. .bash_aliases
+if [ -f .aliasesrc ]; then
+	. .aliasesrc
 fi
