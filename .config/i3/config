@@ -12,6 +12,7 @@ set $term termite
 
 # Rofi application luncher
 set $menu rofi -show drun
+set $window rofi -show window
 
 # to get the transparency
 exec xcompmgr -c -f -n
@@ -45,6 +46,9 @@ bindsym $mod+Shift+q kill
 
 # start your launcher
 bindsym $mod+d exec $menu
+
+bindsym $mod+Shift+d exec $window
+
 
 # reload the configuration file
 bindsym $mod+Shift+c reload

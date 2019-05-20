@@ -1,9 +1,9 @@
 [options]
 allow_bold = true
 #audible_bell = false
-#clickable_url = true
-#dynamic_title = true
-font = Monospace 10
+clickable_url = true
+dynamic_title = true
+font = Monospace 12
 #fullscreen = true
 #geometry = 640x480
 #icon_name = terminal
@@ -15,7 +15,7 @@ font = Monospace 10
 scrollback_lines = 10000
 #search_wrap = true
 #urgent_on_bell = true
-#hyperlinks = false
+hyperlinks = false
 
 # $BROWSER is used by default if set, with xdg-open as a fallback
 #browser = xdg-open
@@ -39,6 +39,7 @@ scrollback_lines = 10000
 #scrollbar = off
 
 [hints]
+font = Inconsolata-Regular 10
 font = Monospace 12
 #foreground = #dcdccc
 #background = #3f3f3f
@@ -59,7 +60,7 @@ foreground          = #d0c8c6
 foreground_bold     = #e9e1dd
 cursor              = #e9e1dd
 cursor_foreground   = #3B3228
-background          = rgba(59, 50, 40, 0.90)
+background          = rgba(59, 50, 40, 0.85)
 
 # 16 color space
 
