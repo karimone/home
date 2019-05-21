@@ -7,9 +7,11 @@
 "*                                   *
 "*************************************
 
+colorscheme elflord
+let mapleader = ","
+let g:airline_powerline_fonts = 1
 
-let mapleader =","
-
+" Install the vim-plug if is not present
 if ! filereadable(expand('~/.config/nvim/autoload/plug.vim'))
 	echo "Downloading junegunn/vim-plug to manage plugins..."
 	silent !mkdir -p ~/.config/nvim/autoload/
@@ -17,7 +19,7 @@ if ! filereadable(expand('~/.config/nvim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.config/nvim/plugged')
-"Plug 'tpope/vim-surround'
+Plug 'tpope/vim-surround'
 "Plug 'junegunn/goyo.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'PotatoesMaster/i3-vim-syntax'
@@ -33,7 +35,10 @@ set go=a
 set mouse=a
 set nohlsearch
 set clipboard=unnamedplus
+set noswapfile
 
+map <F2> :NERDTreeToggle<CR>
+map <leader>r :echo "reloading vimrc..."<CR>:so $MYVIMRC<CR>
 " Some basics:
 	nnoremap c "_c
 	set nocompatible

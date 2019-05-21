@@ -3,6 +3,7 @@
 alias ls="ls --color=auto"
 alias ll="ls -lh"
 alias l="ll -a"
+alias la="ll -a"
 alias grub-update="sudo grub-mkconfig -o /boot/grub/grub.cfg"
 alias news="newsboat"
 alias gs="git status"
