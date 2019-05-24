@@ -1,3 +1,8 @@
+# #---Basic Definitions---# #
+for_window [class="^.*"] border pixel 2
+gaps inner 5
+gaps outer 10
+
 # Logo key. Use Mod1 for Alt.
 set $mod Mod4
 
@@ -8,7 +13,7 @@ set $up k
 set $right l
 
 # Set the terminal
-set $term termite
+set $term --no-startup-id termite
 
 # Rofi application luncher
 set $menu rofi -show drun
@@ -21,7 +26,7 @@ exec xcompmgr -c -f -n
 exec xwallpaper --stretch  ~/Documents/personal/wallpapers/land001.jpg
 
 # font
-font pango:DejaVu Sans Mono 14
+font pango:DejaVu Sans Mono 11
 
 # start a terminal (h)
 bindsym $mod+Return split h; exec $term
