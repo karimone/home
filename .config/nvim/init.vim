@@ -36,6 +36,10 @@ set mouse=a
 set nohlsearch
 set clipboard=unnamedplus
 set noswapfile
+set autowrite "save buffers automatically when switching
+
+nnoremap <leader>b :buffers<CR>:buffer<Space>
+
 
 map <F2> :NERDTreeToggle<CR>
 map <leader>r :echo "reloading vimrc..."<CR>:so $MYVIMRC<CR>
