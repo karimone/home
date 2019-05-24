@@ -16,18 +16,36 @@ export PATH
 export QT_QPA_PLATFORM=xcb
 export EDITOR=nvim
 
-# Source global definitions
+# Source aliases
 if [ -f .aliasesrc ]; then
 	. .aliasesrc
 fi
 
+if [ -f .config/bash/colors ]; then
+	. .config/bash/colors
+fi
+
+# git function in the prompt
 if [ -f .config/bash/git-prompt.sh ]; then
 	source .config/bash/git-prompt.sh
 fi
 
-export PS1="[\u][\A][\w]-\`__git_ps1\` \\n\$ "
+# git auto completation
+if [ -f .config/bash/git-completion.sh ]; then
+	source .config/bash/git-completion.sh
+fi
 
-function combo {
-PS1="\[\033[01;34;01m\]\333\262\261\260\[\033[01;37;44m\]\u@\h\[\033[00;34;40m\]\260\261\262\333\[\033[00;34;40m\]\333\262\261\260\[\033[01;37;40m\] \d \$(date +%I:%M:%S%P)\n\[\033[01;33;40m\]$PWD>\[\033[00m\] "
-PS2="\[\033[01;34;01m\]\333\262\261\260\[\033[00;34;40m\]\260\261\262\333\[\033[00;34;40m\]\333\262\261\260\[\033[01;01;34m\]>\[\033[00m\] "
-}
+# GIT options
+
+# TODO: add a command that print an help about git symbols (see git-prompt.sh)
+export GIT_PS1_SHOWDIRTYSTATE="NonEmptyValue"
+export GIT_PS1_SHOWSTASHSTATE="NonEmptyValue"
+export GIT_PS1_SHOWUNTRACKEDFILE="NonEmptyValue"
+export GIT_PS1_SHOWUPSTREAM="auto"
+export GIT_PS1_SHOWCOLORHINTS="NonEmptyValue"
+
+# Prompt
+export PS1=\
+'[${CYAN}\t${RESTORE}] ${GREEN}\u${WHITE}@${RED}\h${WHITE}:${BLUE}\w${YELLOW}$(__git_ps1)\n${RESTORE}\$ '
+#export PS1="[\A]\u@\h:\W[$(__git_ps1 '($s)']\\n\$ "
+# Bash: PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '

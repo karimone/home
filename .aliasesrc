@@ -1,5 +1,4 @@
 #vim ft=shell
-
 alias ls="ls --color=auto"
 alias ll="ls -lh"
 alias l="ll -a"
@@ -9,3 +8,6 @@ alias news="newsboat"
 alias gs="git status"
 alias vim="nvim"
 alias vi="nvim"
+
+# dirs
+alias my="cd ~/Documents/personal/"

@@ -38,7 +38,7 @@
 # In addition, if you set GIT_PS1_SHOWDIRTYSTATE to a nonempty value,
 # unstaged (*) and staged (+) changes will be shown next to the branch
 # name.  You can configure this per-repository with the
-# bash.showDirtyState variable, which defaults to true once
+	# bash.showDirtyState variable, which defaults to true once
 # GIT_PS1_SHOWDIRTYSTATE is enabled.
 #
 # You can also see if currently something is stashed, by setting
