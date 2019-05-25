@@ -1,33 +1,22 @@
-RESTORE=$(echo -en '\033[0m')
-RED=$(echo -en '\033[00;31m')
-GREEN=$(echo -en '\033[00;32m')
-YELLOW=$(echo -en '\033[00;33m')
-BLUE=$(echo -en '\033[00;34m')
-MAGENTA=$(echo -en '\033[00;35m')
-PURPLE=$(echo -en '\033[00;35m')
-CYAN=$(echo -en '\033[00;36m')
-LIGHTGRAY=$(echo -en '\033[00;37m')
-LRED=$(echo -en '\033[01;31m')
-LGREEN=$(echo -en '\033[01;32m')
-LYELLOW=$(echo -en '\033[01;33m')
-LBLUE=$(echo -en '\033[01;34m')
-LMAGENTA=$(echo -en '\033[01;35m')
-LPURPLE=$(echo -en '\033[01;35m')
-LCYAN=$(echo -en '\033[01;36m')
-WHITE=$(echo -en '\033[01;37m')
+#vim ft=bash
+RESTORE='\[\033[0m\]'
+RED='\[\033[00;31m\]'
+GREEN='\[\033[00;32m\]'
+YELLOW='\[\033[00;33m\]'
+BLUE='\[\033[00;34m\]'
+MAGENTA='\[\033[00;35m\]'
+PURPLE='\[\033[00;35m\]'
+CYAN='\[\033[00;36m\]'
+WHITE='\[\033[01;37m\]'
 
-
-
-
-F_RESET='\e[0m'     # Text Reset
-F_BLACK='\e[0;30m'	# Black - Regular
-F_RED='\e[0;31m'   	# Red
-F_GREEN='\e[0;32m' 	# Green
-F_YELLOW='\e[0;33m' # Yellow
-F_BLUE='\e[0;34m' 	# Blue
-F_PURPLE='\e[0;35m' # Purple
-F_CYAN='\e[0;36m' 	# Cyan
-F_WHITE='\e[0;37m' 	# White
+LIGHTGRAY='\033[00;37m'
+LRED='\033[01;31m'
+LGREEN='\034[01;32m'
+LYELLOW='\034[01;33m'
+LBLUE='\033[01;34m'
+LMAGENTA='\033[01;35m'
+LPURPLE='\033[01;35m'
+LCYAN='\033[01;36m'
 
 BOLD_BLACK='\e[1;30m' 	# Black - Bold
 BOLD_RED='\e[1;31m' 	# Red
@@ -41,17 +30,17 @@ BOLD_WHITE='\e[1;37m' 	# White
 U_BLACK='\e[4;30m' 	# Black - Underline
 U_RED='\e[4;31m' 	# Red
 U_GREEN='\e[4;32m' 	# Green
-U_YELLOW='\e[4;33m' # Yellow
+U_YELLOW='\e[4;33m' 	# Yellow
 U_BLUE='\e[4;34m' 	# Blue
-U_PURPLE='\e[4;35m' # Purple
+U_PURPLE='\e[4;35m' 	# Purple
 U_CYAN='\e[4;36m' 	# Cyan
 U_WHITE='\e[4;37m' 	# White
 
 B_BLACK='\e[40m'   	# Black - Background
 B_RED='\e[41m'   	# Red
 B_GREEN='\e[42m'   	# Green
-B_YELLOW='\e[43m'   # Yellow
+B_YELLOW='\e[43m'   	# Yellow
 B_BLUE='\e[44m'   	# Blue
-B_PURPLE='\e[45m'   # Purple
+B_PURPLE='\e[45m'   	# Purple
 B_CYAN='\e[46m'   	# Cyan
 B_WHITE='\e[47m'   	# White

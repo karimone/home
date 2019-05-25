@@ -25,6 +25,7 @@ if [ -f .config/bash/colors ]; then
 	. .config/bash/colors
 fi
 
+
 # git function in the prompt
 if [ -f .config/bash/git-prompt.sh ]; then
 	source .config/bash/git-prompt.sh
@@ -43,9 +44,10 @@ export GIT_PS1_SHOWSTASHSTATE="NonEmptyValue"
 export GIT_PS1_SHOWUNTRACKEDFILE="NonEmptyValue"
 export GIT_PS1_SHOWUPSTREAM="auto"
 export GIT_PS1_SHOWCOLORHINTS="NonEmptyValue"
+export GIT_PS1_DESCRIBE_STYLE="branch"
 
 # Prompt
-export PS1=\
-'[${CYAN}\t${RESTORE}] ${GREEN}\u${WHITE}@${RED}\h${WHITE}:${BLUE}\w${YELLOW}$(__git_ps1)\n${RESTORE}\$ '
-#export PS1="[\A]\u@\h:\W[$(__git_ps1 '($s)']\\n\$ "
-# Bash: PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
+
+PS1="[${GREEN}\t${RESTORE}] \
+${PURPLE}\u${WHITE}@${RED}\h${WHITE}:\
+${BLUE}\w${YELLOW} \$(__git_ps1)\n${RESTORE}\$ "

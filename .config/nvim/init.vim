@@ -9,7 +9,6 @@
 
 colorscheme elflord
 let mapleader = ","
-let g:airline_powerline_fonts = 1
 
 " Install the vim-plug if is not present
 if ! filereadable(expand('~/.config/nvim/autoload/plug.vim'))
@@ -59,3 +58,11 @@ map <leader>r :echo "reloading vimrc..."<CR>:so $MYVIMRC<CR>
 " Copy selected text to system clipboard (requires gvim/nvim/vim-x11 installed):
 	vnoremap <C-c> "+y
 	map <C-p> "+P
+
+" vim-airline settings
+	let g:airline_powerline_fonts = 1
+	let g:airline#extensions#tabline#enabled = 1
+	let g:airline#extensions#tabline#left_sep = ' '
+	let g:airline#extensions#tabline#left_alt_sep = '|'
+	let g:airline#extensions#tabline#formatter = 'default'
+
