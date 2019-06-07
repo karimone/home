@@ -27,21 +27,30 @@ Plug 'vimwiki/vimwiki'
 Plug 'bling/vim-airline'
 Plug 'tpope/vim-commentary'
 Plug 'vifm/vifm.vim'
+Plug 'kien/ctrlp.vim'
+Plug 'jeetsukumaran/vim-buffergator'
 call plug#end()
 
 set bg=light
 set go=a
 set mouse=a
+set scrolloff=999  " keeps the cursor vertically allined
 set nohlsearch
 set clipboard=unnamedplus
 set noswapfile
 set autowrite "save buffers automatically when switching
 
-nnoremap <leader>b :buffers<CR>:buffer<Space>
-
-
 map <F2> :NERDTreeToggle<CR>
+map <F4> :BuffergatorToggle<CR>
 map <leader>r :echo "reloading vimrc..."<CR>:so $MYVIMRC<CR>
+
+" nice navigation
+map <a-h> :bp<cr>
+map <a-l> :bn<cr>
+map <a-H> :bfirst<cr>
+map <a-L> :blast<cr>
+map <a-x> :bdelete<cr>
+
 " Some basics:
 	nnoremap c "_c
 	set nocompatible

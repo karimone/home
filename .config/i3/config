@@ -13,20 +13,23 @@ set $up k
 set $right l
 
 # Set the terminal
-set $term --no-startup-id termite
+#set $term --no-startup-id termite
+set $term i3-sensible-terminal
 
 # Rofi application luncher
-set $menu rofi -show drun
-set $window rofi -show window
+set $menu rofi -show drun -show-icons
+set $window rofi -show window -show-icons
 
 # to get the transparency
 exec xcompmgr -c -f -n
 
 # set the wallpaper
-exec xwallpaper --stretch  ~/Documents/personal/wallpapers/land001.jpg
+exec randwall
+
+bindsym $mod+w exec randwall
 
 # font
-font pango:DejaVu Sans Mono 11
+font pango:Inconsolata, DejaVu Sans Mono, Icons 11
 
 # start a terminal (h)
 bindsym $mod+Return split h; exec $term
@@ -73,31 +76,100 @@ bindsym $mod+Shift+$right move right
 #
 # Workspaces:
 #
+
+set $ws1 "01"
+set $ws2 "02"
+set $ws3 "03"
+set $ws4 "04"
+set $ws5 "05"
+set $ws6 "06"
+set $ws7 "07"
+set $ws8 "08"
+set $ws9 "09"
+set $ws0 "10"
+
+set $wsh1 "11"
+set $wsh2 "12"
+set $wsh3 "13"
+set $wsh4 "14"
+set $wsh5 "15"
+set $wsh6 "16"
+set $wsh7 "17"
+set $wsh8 "18"
+set $wsh9 "19"
+set $wsh0 "20"
+
+# define outputs
+
+workspace $ws1 output eDP-1
+workspace $ws2 output eDP-1
+workspace $ws3 output eDP-1
+workspace $ws4 output eDP-1
+workspace $ws5 output eDP-1
+workspace $ws6 output eDP-1
+workspace $ws6 output eDP-1
+workspace $ws7 output eDP-1
+workspace $ws8 output eDP-1
+workspace $ws9 output eDP-1
+workspace $ws0 output eDP-1
+
+workspace $wsh1 output HDMI-1
+workspace $wsh2 output HDMI-1
+workspace $wsh3 output HDMI-1
+workspace $wsh4 output HDMI-1
+workspace $wsh5 output HDMI-1
+workspace $wsh6 output HDMI-1
+workspace $wsh7 output HDMI-1
+workspace $wsh8 output HDMI-1
+workspace $wsh9 output HDMI-1
+workspace $wsh0 output HDMI-1
+
 # switch to workspace
-bindsym $mod+1 workspace 1
-bindsym $mod+2 workspace 2
-bindsym $mod+3 workspace 3
-bindsym $mod+4 workspace 4
-bindsym $mod+5 workspace 5
-bindsym $mod+6 workspace 6
-bindsym $mod+7 workspace 7
-bindsym $mod+8 workspace 8
-bindsym $mod+9 workspace 9
-bindsym $mod+0 workspace 10
-bindsym $mod+Mod1+1 workspace 11
+
+bindsym $mod+F1 workspace $wsh1
+bindsym $mod+F2 workspace $wsh2
+bindsym $mod+F3 workspace $wsh3
+bindsym $mod+F4 workspace $wsh4
+bindsym $mod+F5 workspace $wsh5
+bindsym $mod+F6 workspace $wsh6
+bindsym $mod+F7 workspace $wsh7
+bindsym $mod+F8 workspace $wsh8
+bindsym $mod+F9 workspace $wsh9
+bindsym $mod+F10 workspace $wsh0
+
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws0
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace 1
-bindsym $mod+Shift+2 move container to workspace 2
-bindsym $mod+Shift+3 move container to workspace 3
-bindsym $mod+Shift+4 move container to workspace 4
-bindsym $mod+Shift+5 move container to workspace 5
-bindsym $mod+Shift+6 move container to workspace 6
-bindsym $mod+Shift+7 move container to workspace 7
-bindsym $mod+Shift+8 move container to workspace 8
-bindsym $mod+Shift+9 move container to workspace 9
-bindsym $mod+Shift+0 move container to workspace 10
-bindsym $mod+Shift+Mod1+1 move container to workspace 11
+bindsym $mod+Shift+F1 move container to workspace $wsh1
+bindsym $mod+Shift+F2 move container to workspace $wsh2
+bindsym $mod+Shift+F3 move container to workspace $wsh3
+bindsym $mod+Shift+F4 move container to workspace $wsh4
+bindsym $mod+Shift+F5 move container to workspace $wsh5
+bindsym $mod+Shift+F6 move container to workspace $wsh6
+bindsym $mod+Shift+F7 move container to workspace $wsh7
+bindsym $mod+Shift+F8 move container to workspace $wsh8
+bindsym $mod+Shift+F9 move container to workspace $wsh9
+bindsym $mod+Shift+F10 move container to workspace $wsh0
+
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws0
 
 # Layout stuff:
 # You can "split" the current object of your focus with
@@ -162,13 +234,19 @@ bar {
 		inactive_workspace #333333 #222222 #888888
 		urgent_workspace   #2f343a #900000 #ffffff
     }
-    position top
-    status_command i3blocks -c $HOME/.config/i3/i3blocks.conf
-    workspace_buttons yes
+
+    	#font pango:Inconsolata, Icons 11
+    	font pango:Font Awesome, Inconsolata, Icons 12
+    	position top
+    	status_command i3blocks -c $HOME/.config/i3/i3blocks.conf
+    	workspace_buttons yes
 }
 
 # restart i3-msg
 bindsym $mod+i exec i3-msg restart
+
+# lock
+bindsym $mod+z exec i3lock-fancy
 
 # session
 mode "(L)ock, (S)ignout, (R)eboot, (I)3-msg restart, (P)oweroff" {
@@ -183,3 +261,38 @@ bindsym $mod+Shift+s mode "(L)ock, (S)ignout, (R)eboot, (I)3-msg restart, (P)owe
 
 #bindsym --release Caps_Lock exec pkill -SIGRTMIN+10 i3blocks
 #bindsym --release Num_Lock  exec pkill -SIGRTMIN+10 i3blocks
+
+# Pulse Audio controls
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+
+# Sreen brightness controls
+bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
+bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
+
+# Touchpad controls
+bindsym XF86TouchpadToggle exec toggletouchpad # toggle touchpad
+
+# Media player controls
+bindsym XF86AudioPlay exec playerctl play
+bindsym XF86AudioPause exec playerctl pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+
+## Manual management of external displays
+set $mode_display Ext Screen (k) HDMI ON, (j) HDMI OFF
+mode "$mode_display" {
+    bindsym k exec --no-startup-id xrandr --output HDMI-1 --auto --above eDP-1, mode "default"
+    bindsym j exec --no-startup-id xrandr --output HDMI-1 --auto --off, mode "default"
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+# Declare here the shortcut to bring the display selection menu
+bindsym $mod+x mode "$mode_display"
+
+# avoid the focuse on mouse movement
+focus_follows_mouse no  
+

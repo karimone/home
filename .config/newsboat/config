@@ -3,8 +3,10 @@ auto-reload yes
 max-items 50
 browser "lynx %u"
 
-# macors
+# macros
+macro t set browser "transmission-remote --add '%u'"; open-in-browser ; set browser "lynx %u"
 macro m set browser "mpv %u"; open-in-browser ; set browser "lynx %u"
+macro v set browser "mpv %u"; open-in-browser-and-mark-read ; set browser "lynx %u"
 macro l set browser "opera %u"; open-in-browser ; set browser "lynx %u"
 macro a set browser "mpv --vid=no %u"; open-in-browser ; set browser "lynx %u"
 

@@ -8,6 +8,13 @@ alias news="newsboat"
 alias gs="git status"
 alias vim="nvim"
 alias vi="nvim"
+alias mutt="neomutt"
+alias sub="subliminal download -l en"
 
 # dirs
-alias my="cd ~/Documents/personal/"
+alias my="cd ~/Documents/personal/; vim"
+
+# EC
+alias ec="cd ~/Code/Work/spence/expensecheck"
+alias devlog="ssh bsure-develop@bsure-develop.expensecheck.com.au tail -f develop.log"
+alias qalog="ssh bsure-qa@bsure-qa.expensecheck.com.au tail -f qa.log"

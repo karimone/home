@@ -50,4 +50,19 @@ export GIT_PS1_DESCRIBE_STYLE="branch"
 
 PS1="[${GREEN}\t${RESTORE}] \
 ${PURPLE}\u${WHITE}@${RED}\h${WHITE}:\
-${BLUE}\w${YELLOW} \$(__git_ps1)\n${RESTORE}\$ "
+${BLUE}\w${YELLOW}\$(__git_ps1)\n${RESTORE}\$ "
+
+# virtualenvwrapper
+export WORKON_HOME=~/.venvs
+source /usr/bin/virtualenvwrapper.sh
+
+# man colored
+man() {
+    LESS_TERMCAP_md=$'\e[01;31m' \
+    LESS_TERMCAP_me=$'\e[0m' \
+    LESS_TERMCAP_se=$'\e[0m' \
+    LESS_TERMCAP_so=$'\e[01;44;33m' \
+    LESS_TERMCAP_ue=$'\e[0m' \
+    LESS_TERMCAP_us=$'\e[01;32m' \
+    command man "$@"
+}
