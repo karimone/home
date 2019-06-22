@@ -16,5 +16,15 @@ alias my="cd ~/Documents/personal/; vim"
 
 # EC
 alias ec="cd ~/Code/Work/spence/expensecheck"
-alias devlog="ssh bsure-develop@bsure-develop.expensecheck.com.au tail -f develop.log"
-alias qalog="ssh bsure-qa@bsure-qa.expensecheck.com.au tail -f qa.log"
+alias wec="workon ec"
+alias ec-dev-log="ssh bsure-develop@bsure-develop.expensecheck.com.au tail -f develop.log"
+alias ec-qa-log="ssh bsure-qa@bsure-qa.expensecheck.com.au tail -f qa.log"
+alias ec-qa-log-dump="ec; echo 'downloading on _logs/qa.log ...'; ssh bsure-qa@bsure-qa.expensecheck.com.au cat qa.log > _logs/qa.log && vim _logs/qa.log"
+
+# CML
+alias cml="cd ~/Code/Work/cml"
+alias wcml="workon cml"
+
+# docker
+alias d-stop="docker stop $(docker ps -q)"
+alias d-rm="docker rm $(docker ps -q)"

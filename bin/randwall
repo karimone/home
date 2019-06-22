@@ -1,0 +1,7 @@
+#!/bin/sh
+HDMI="HDMI-1"
+EDP="eDP-1"
+PIC=`find ~/Pictures/wallpapers/ -type f -follow -print | shuf -n 1`
+PIC2=`find ~/Pictures/wallpapers/ -type f -follow -print | shuf -n 1`
+
+xwallpaper --output $HDMI --stretch ${PIC} --output $EDP --stretch ${PIC2}

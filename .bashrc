@@ -46,11 +46,25 @@ export GIT_PS1_SHOWUPSTREAM="auto"
 export GIT_PS1_SHOWCOLORHINTS="NonEmptyValue"
 export GIT_PS1_DESCRIBE_STYLE="branch"
 
+
+function set-title() {
+# set the title of the terminal using the last command
+if [[ -z "$ORIG" ]]; then
+    ORIG=$PS1
+  fi
+  #TITLE="\[\e]2;`echo "!!"`\a\]"
+  TITLE=`echo -en "\033]0;$(echo "!!")\a"`
+  PS1=${ORIG}${TITLE}
+}
+
 # Prompt
 
 PS1="[${GREEN}\t${RESTORE}] \
 ${PURPLE}\u${WHITE}@${RED}\h${WHITE}:\
 ${BLUE}\w${YELLOW}\$(__git_ps1)\n${RESTORE}\$ "
+
+
+
 
 # virtualenvwrapper
 export WORKON_HOME=~/.venvs

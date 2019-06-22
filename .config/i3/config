@@ -1,5 +1,5 @@
 # #---Basic Definitions---# #
-for_window [class="^.*"] border pixel 2
+for_window [class="^.*"] border pixel 4
 gaps inner 5
 gaps outer 10
 
@@ -21,12 +21,16 @@ set $menu rofi -show drun -show-icons
 set $window rofi -show window -show-icons
 
 # to get the transparency
-exec xcompmgr -c -f -n
+exec --no-startup-id xcompmgr -c -f -n
 
 # set the wallpaper
-exec randwall
+exec --no-startup-id randwall
 
-bindsym $mod+w exec randwall
+# call me again when you want
+bindsym $mod+w exec --no-startup-id randwall
+
+# notification system
+exec --no-startup-id dunst
 
 # font
 font pango:Inconsolata, DejaVu Sans Mono, Icons 11
@@ -37,17 +41,15 @@ bindsym $mod+Return split h; exec $term
 # start a terminal (v)
 bindsym $mod+Shift+Return split v; exec $term
 
+# simulate the screenshot as in Macos
+bindsym Alt+Shift+4 exec --no-startup-id scrot -s
+bindsym Alt+Shift+3 exec --no-startup-id scrot
+
 # start opera (h)
 bindsym $mod+o split h; exec opera
 
 # start opera (h)
 bindsym $mod+Shift+o split v; exec opera
-
-# start qutebrowser (h)
-bindsym $mod+Mod1+b split h; exec qutebrowser
-
-# start qutebrowser (h)
-bindsym $mod+Mod1+Shift+b split v; exec qutebrowser
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -56,7 +58,6 @@ bindsym $mod+Shift+q kill
 bindsym $mod+d exec $menu
 
 bindsym $mod+Shift+d exec $window
-
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -246,18 +247,18 @@ bar {
 bindsym $mod+i exec i3-msg restart
 
 # lock
-bindsym $mod+z exec i3lock-fancy
+bindsym $mod+z exec --no-startup-id i3lock-fancy-dualmonitor
 
 # session
-mode "(L)ock, (S)ignout, (R)eboot, (I)3-msg restart, (P)oweroff" {
-    bindsym $mod+l exec ~/.i3/scripts/lock
-    bindsym $mod+r exec systemctl reboot
-    bindsym $mod+s exit
-    bindsym $mod+p exec systemctl shutdown
+set $session_message "(S)uspend, (R)eboot, (P)oweroff"
+mode $session_message {
+    bindsym $mod+s exec systemctl suspend, mode "default"
+    bindsym $mod+r exec systemctl reboot, mode "default"
+    bindsym $mod+p exec systemctl shutdown, mode "default"
     bindsym Escape mode "default"
 }
 
-bindsym $mod+Shift+s mode "(L)ock, (S)ignout, (R)eboot, (I)3-msg restart, (P)oweroff"
+bindsym $mod+Shift+s mode $session_message
 
 #bindsym --release Caps_Lock exec pkill -SIGRTMIN+10 i3blocks
 #bindsym --release Num_Lock  exec pkill -SIGRTMIN+10 i3blocks
@@ -275,8 +276,8 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightne
 bindsym XF86TouchpadToggle exec toggletouchpad # toggle touchpad
 
 # Media player controls
-bindsym XF86AudioPlay exec playerctl play
-bindsym XF86AudioPause exec playerctl pause
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioPause exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
@@ -291,7 +292,7 @@ mode "$mode_display" {
     bindsym Escape mode "default"
 }
 # Declare here the shortcut to bring the display selection menu
-bindsym $mod+x mode "$mode_display"
+bindsym $mod+m mode "$mode_display"
 
 # avoid the focuse on mouse movement
 focus_follows_mouse no  
