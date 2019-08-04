@@ -46,6 +46,9 @@ export GIT_PS1_SHOWUPSTREAM="auto"
 export GIT_PS1_SHOWCOLORHINTS="NonEmptyValue"
 export GIT_PS1_DESCRIBE_STYLE="branch"
 
+# Ranger
+export RANGER_LOAD_DEFAULT_RC=false
+
 
 function set-title() {
 # set the title of the terminal using the last command
@@ -63,7 +66,10 @@ PS1="[${GREEN}\t${RESTORE}] \
 ${PURPLE}\u${WHITE}@${RED}\h${WHITE}:\
 ${BLUE}\w${YELLOW}\$(__git_ps1)\n${RESTORE}\$ "
 
-
+# SSH
+# eval $(ssh-agent -s)
+# ssh-add ~/.ssh/personal_bitbucket && echo "correctly loaded personal_bitbucket key"
+# ssh-add ~/.ssh/id_rsa && echo "correctly loaded id_rsa key"
 
 
 # virtualenvwrapper

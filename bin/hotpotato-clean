@@ -1,6 +1,7 @@
 #!/bin/sh
 HOTPOTATO_DIR=$HOME/Code/Work/hotpotato
 cd $HOTPOTATO_DIR
+echo "Changed dir to $HOTPOTATO_DIR"
 
 echo "Removing container ``hotpotato_web``."
 docker rm $(docker ps -a | grep hotpotato_web | awk '{print $1}')

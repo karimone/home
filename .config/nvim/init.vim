@@ -51,6 +51,12 @@ map <a-H> :bfirst<cr>
 map <a-L> :blast<cr>
 map <a-x> :bdelete<cr>
 
+" use the clipboard 
+noremap <leader>y "+y
+noremap <leader>Y "+Y
+noremap <leader>p "+p
+noremap <leader>P "+P
+
 " Some basics:
 	nnoremap c "_c
 	set nocompatible
@@ -74,4 +80,8 @@ map <a-x> :bdelete<cr>
 	let g:airline#extensions#tabline#left_sep = ' '
 	let g:airline#extensions#tabline#left_alt_sep = '|'
 	let g:airline#extensions#tabline#formatter = 'default'
+
+" Save the file as sudo
+cmap w!! w !sudo tee > /dev/null %
+
 

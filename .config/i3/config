@@ -3,7 +3,9 @@ for_window [class="^.*"] border pixel 4
 gaps inner 5
 gaps outer 10
 
-# Logo key. Use Mod1 for Alt.
+# Mod4 = Windows Key
+set $alt Mod1
+set $sup Mod4
 set $mod Mod4
 
 # Home row direction keys, like vim
@@ -13,15 +15,15 @@ set $up k
 set $right l
 
 # Set the terminal
-#set $term --no-startup-id termite
-set $term i3-sensible-terminal
+set $term kitty
+#set $term i3-sensible-terminal
 
 # Rofi application luncher
 set $menu rofi -show drun -show-icons
 set $window rofi -show window -show-icons
 
 # to get the transparency
-exec --no-startup-id xcompmgr -c -f -n
+# exec --no-startup-id xcompmgr -c -C -t-5 -l-5 -r4.2 -o.55 -f
 
 # set the wallpaper
 exec --no-startup-id randwall
@@ -41,15 +43,15 @@ bindsym $mod+Return split h; exec $term
 # start a terminal (v)
 bindsym $mod+Shift+Return split v; exec $term
 
-# simulate the screenshot as in Macos
-bindsym Alt+Shift+4 exec --no-startup-id scrot -s
-bindsym Alt+Shift+3 exec --no-startup-id scrot
-
 # start opera (h)
 bindsym $mod+o split h; exec opera
 
 # start opera (h)
 bindsym $mod+Shift+o split v; exec opera
+
+# start ranger
+bindsym $mod+r split h; exec $term ranger
+bindsym Ctrl+$mod+r split v; exec $term ranger
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -60,7 +62,7 @@ bindsym $mod+d exec $menu
 bindsym $mod+Shift+d exec $window
 
 # reload the configuration file
-bindsym $mod+Shift+c reload
+bindsym $mod+c reload
 
 # Move your focus around
 bindsym $mod+$left focus left
@@ -107,7 +109,6 @@ workspace $ws2 output eDP-1
 workspace $ws3 output eDP-1
 workspace $ws4 output eDP-1
 workspace $ws5 output eDP-1
-workspace $ws6 output eDP-1
 workspace $ws6 output eDP-1
 workspace $ws7 output eDP-1
 workspace $ws8 output eDP-1
@@ -211,7 +212,9 @@ bindsym $mod+a focus parent
 #
 # Resizing containers:
 #
-mode "resize" {
+#
+set $resize "Resize container (h) left (k) up (j) down (l) right"
+mode "Resize" {
     bindsym $mod+h resize shrink width 10px
     bindsym $mod+l resize grow width 10px
 
@@ -220,8 +223,9 @@ mode "resize" {
 
     # return to default mode
     bindsym Escape mode "default"
+    bindsym Return mode "default"
 }
-bindsym $mod+r mode "resize"
+bindsym $mod+Shift+r mode $resize
 
 #
 # Status Bar:
@@ -239,7 +243,7 @@ bar {
     	#font pango:Inconsolata, Icons 11
     	font pango:Font Awesome, Inconsolata, Icons 12
     	position top
-    	status_command i3blocks -c $HOME/.config/i3/i3blocks.conf
+    	status_command i3blocks -c $HOME/.config/i3blocks/config
     	workspace_buttons yes
 }
 
@@ -250,12 +254,14 @@ bindsym $mod+i exec i3-msg restart
 bindsym $mod+z exec --no-startup-id i3lock-fancy-dualmonitor
 
 # session
-set $session_message "(S)uspend, (R)eboot, (P)oweroff"
+set $session_message "(L)ock, (S)uspend, (R)eboot, (P)oweroff"
 mode $session_message {
+    bindsym $mod+l exec --no-startup-id i3lock-fancy-dualmonitor
     bindsym $mod+s exec systemctl suspend, mode "default"
     bindsym $mod+r exec systemctl reboot, mode "default"
     bindsym $mod+p exec systemctl shutdown, mode "default"
     bindsym Escape mode "default"
+    bindsym Return mode "default"
 }
 
 bindsym $mod+Shift+s mode $session_message
@@ -264,9 +270,9 @@ bindsym $mod+Shift+s mode $session_message
 #bindsym --release Num_Lock  exec pkill -SIGRTMIN+10 i3blocks
 
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% #decrease sound volume
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle # mute sound
 
 # Sreen brightness controls
 bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
@@ -281,6 +287,27 @@ bindsym XF86AudioPause exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
+# Screenshot and other tools
+set $tool_display Screenshot (F)ullscreen or (S)election
+mode "$tool_display" {
+    bindsym --release s exec scrot '%Y-%m-%d_$wx$h_selection.png' -s -e 'mv $f ~/Pictures/shots/' && notify-send "selection saved in Pictures/shots", mode "default"
+    bindsym --release f exec screenshot, mode "default"
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+Shift+t mode "$tool_display"
+
+# Notify management
+set $notify_management Notify (E)nable / (D)isable
+mode "$notify_management" {
+    bindsym --release e exec notify-send "DUNST_COMMAND_RESUME" && notify-send "Notification resumed", mode "default
+    bindsym --release d exec notify-send "DUNST_COMMAND_PAUSE", mode "default"
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+Shift+n mode "$notify_management"
+
 ## Manual management of external displays
 set $mode_display Ext Screen (k) HDMI ON, (j) HDMI OFF
 mode "$mode_display" {
@@ -292,7 +319,7 @@ mode "$mode_display" {
     bindsym Escape mode "default"
 }
 # Declare here the shortcut to bring the display selection menu
-bindsym $mod+m mode "$mode_display"
+bindsym $mod+Shift+m mode "$mode_display"
 
 # avoid the focuse on mouse movement
 focus_follows_mouse no  
