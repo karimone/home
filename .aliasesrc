@@ -24,7 +24,18 @@ alias ec-qa-log-dump="ec; echo 'downloading on _logs/qa.log ...'; ssh bsure-qa@b
 # CML
 alias cml="cd ~/Code/Work/cml"
 alias wcml="workon cml"
+alias scml="ssh karim@poem-isabel.bnr.la"
 
 # docker
 alias d-stop="docker stop $(docker ps -q)"
 alias d-rm="docker rm $(docker ps -q)"
+
+# decentos
+alias decentos="ssh -i ~/.ssh/id_rsa.pub karim@159.69.124.75 -p 59595"
+alias ldmesg="dmesg --color=always | less -R"
+
+
+# notify
+
+# clip
+alias xclip="xclip -selection clipboard"

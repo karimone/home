@@ -1,9 +1,59 @@
-[keyindicator]
-KEY=CAPS
+command=~/bin/statusbar/$BLOCK_NAME
+separator_block_width=15
 markup=pango
-interval=once
-signal=11
 
-[restart]
-full_text=Restart
-command=i3-msg -q restart
+[volume]
+interval=2
+signal=10
+color=#E6E6FA
+
+[hostname]
+interval=once
+color=#00FFFF
+
+[localip]
+label=
+interval=once
+color=#FF2A45
+
+[publicip]
+label=
+interval=once
+color=#FF2145
+
+[internet]
+interval=5
+
+#[process]
+#command=~/.config/i3/process.sh
+#interval=100
+#color=#1FE9FF
+
+[weather]
+label=
+command=weather Melbourne
+interval=3000
+color=#FF6347
+
+[memusage]
+separator=true
+interval=30
+color=#cb4b16
+color=#FF451F
+color=#FFFF00
+
+[time]
+label=📅
+command=date '+%d/%b %H:%M (%a)'
+interval=5
+color=#ADFF2F
+
+#[time-it]
+#label=📅
+#command=TZ=":Europe/Rome" date '+%d/%b %H:%M (%a)'
+#interval=5
+#color=#79a8d8
+
+[battery]
+command=battery BAT0
+interval=5

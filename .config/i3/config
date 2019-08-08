@@ -302,7 +302,7 @@ bindsym $mod+Shift+t mode "$tool_display"
 set $notify_management Notify (E)nable / (D)isable
 mode "$notify_management" {
     bindsym --release e exec notify-send "DUNST_COMMAND_RESUME" && notify-send "Notification resumed", mode "default
-    bindsym --release d exec notify-send "DUNST_COMMAND_PAUSE", mode "default"
+    bindsym --release d exec notify-send -u critical -t 1800 "Nofitication paused" && sleep 2 && notify-send "DUNST_COMMAND_PAUSE", mode "default"
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
