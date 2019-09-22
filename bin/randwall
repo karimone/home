@@ -8,4 +8,4 @@ COMMAND="find $P_PATH -type f ! -path $P_PATH -size +100k -follow -print | shuf 
 PIC=`eval $COMMAND`
 PIC2=`eval $COMMAND`
 
-xwallpaper --output $HDMI --stretch "${PIC}" --output $EDP --stretch "${PIC2}"
+xwallpaper --output $HDMI --stretch "${PIC}" --output $EDP --stretch "${PIC}"

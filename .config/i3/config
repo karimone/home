@@ -1,7 +1,9 @@
 # #---Basic Definitions---# #
-for_window [class="^.*"] border pixel 4
-gaps inner 5
-gaps outer 10
+for_window [class=".*"] border pixel 0
+hide_edge_borders both
+gaps inner 10
+gaps outer 5
+border_radius 5
 
 # Mod4 = Windows Key
 set $alt Mod1
@@ -22,14 +24,19 @@ set $term kitty
 set $menu rofi -show drun -show-icons
 set $window rofi -show window -show-icons
 
+# polybar
+exec_always --no-startup-id ~/bin/launch_polybar.sh
+exec_always --no-startup-id ~/bin/launch_compton.sh
+
 # to get the transparency
-# exec --no-startup-id xcompmgr -c -C -t-5 -l-5 -r4.2 -o.55 -f
+#bindsym $mod+x exec --no-startup-id xcompmgr -c -C -t-5 -l-5 -r4.2 -o.55 -f
+#bindsym $mod+Shift+x exec --no-startup-id killall xcompmgr
 
 # set the wallpaper
-exec --no-startup-id randwall
+exec --no-startup-id ~/bin/randwall
 
 # call me again when you want
-bindsym $mod+w exec --no-startup-id randwall
+bindsym $mod+w exec --no-startup-id ~/bin/randwall
 
 # notification system
 exec --no-startup-id dunst
@@ -52,6 +59,19 @@ bindsym $mod+Shift+o split v; exec opera
 # start ranger
 bindsym $mod+r split h; exec $term ranger
 bindsym Ctrl+$mod+r split v; exec $term ranger
+
+# start gotop
+bindsym $mod+g split h; exec $term gotop -b -s
+bindsym Ctrl+$mod+g split v; exec $term gotop -b -s
+
+# start config editor
+set $config_path "~/.config/i3/config"
+bindsym $mod+e split h; exec $term nvim ~/.config/i3/config
+bindsym Ctrl+$mod+e split v; exec $term nvim $config_path
+
+# start nvim on my docs TODO
+bindsym $mod+n split h; exec $term my
+bindsym Ctrl+$mod+n split v; exec $term my
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -197,6 +217,21 @@ bindsym $mod+space focus mode_toggle
 # move focus to the parent container
 bindsym $mod+a focus parent
 
+## Floating
+floating_minimum_size 75 x 50
+floating_maximum_size 800 x 600
+
+## Assignments
+#
+assign [class="Opera"] $wsh1
+assign [class="jetbrains-pycharm"] $wsh2
+assign [class="firefox"] $wsh3
+
+for_window [class="Spotify"] move container to workspace $ws2
+assign [class="Franz"] $ws3
+assign [class="Slack"] $ws4
+assign [class="TelegramDesktop"] $ws5
+
 #
 # Scratchpad:
 #
@@ -229,23 +264,22 @@ bindsym $mod+Shift+r mode $resize
 
 #
 # Status Bar:
-bar {
-	colors {
-		background #000000
-		statusline #dddddd 
-		separator #666666
-		focused_workspace  #4c7899 #285577 #ffffff
-		active_workspace   #333333 #5f676a #ffffff
-		inactive_workspace #333333 #222222 #888888
-		urgent_workspace   #2f343a #900000 #ffffff
-    }
-
-    	#font pango:Inconsolata, Icons 11
-    	font pango:Font Awesome, Inconsolata, Icons 12
-    	position top
-    	status_command i3blocks -c $HOME/.config/i3blocks/config
-    	workspace_buttons yes
-}
+# bar {
+# 	colors {
+# 		background #000000
+# 		statusline #dddddd 
+# 		separator #666666
+# 		focused_workspace  #4c7899 #285577 #ffffff
+# 		active_workspace   #333333 #5f676a #ffffff
+# 		inactive_workspace #333333 #222222 #888888
+# 		urgent_workspace   #2f343a #900000 #ffffff
+#     }
+# 
+#     	font pango:Font Awesome, Inconsolata, Icons 12
+#     	position top
+#     	status_command i3blocks
+#     	workspace_buttons yes
+# }
 
 # restart i3-msg
 bindsym $mod+i exec i3-msg restart

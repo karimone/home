@@ -1,5 +1,8 @@
 # .bashrc
 
+# vim rulez
+set -o vi
+
 # Source global definitions
 if [ -f /etc/bashrc ]; then
 	. /etc/bashrc
@@ -86,3 +89,26 @@ man() {
     LESS_TERMCAP_us=$'\e[01;32m' \
     command man "$@"
 }
+
+
+function d-stop() {
+# stop all the docker
+for d in $(docker ps -a -q);
+do
+    echo "stop $d";
+    docker stop $d;
+done
+}
+
+function d-rm() {
+# remove all the docker
+for d in $(docker ps -a -q);
+do
+    echo "remove $d";
+    docker rm $d;
+done
+}
+
+
+
+

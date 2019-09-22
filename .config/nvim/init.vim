@@ -40,6 +40,11 @@ set clipboard=unnamedplus
 set noswapfile
 set autowrite "save buffers automatically when switching
 
+" Tabs as a ninja
+set tabstop=4
+set shiftwidth=4
+set expandtab
+
 map <F2> :NERDTreeToggle<CR>
 map <F4> :BuffergatorToggle<CR>
 map <leader>r :echo "reloading vimrc..."<CR>:so $MYVIMRC<CR>
@@ -56,32 +61,32 @@ noremap <leader>y "+y
 noremap <leader>Y "+Y
 noremap <leader>p "+p
 noremap <leader>P "+P
+noremap <leader>q :bdelete<CR>
 
 " Some basics:
-	nnoremap c "_c
-	set nocompatible
-	filetype plugin on
-	syntax on
-	set encoding=utf-8
+nnoremap c "_c
+set nocompatible
+filetype plugin on
+syntax on
+set encoding=utf-8
 
 " Shortcutting split navigation, saving a keypress:
-	map <C-h> <C-w>h
-	map <C-j> <C-w>j
-	map <C-k> <C-w>k
-	map <C-l> <C-w>l
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
 
 " Copy selected text to system clipboard (requires gvim/nvim/vim-x11 installed):
-	vnoremap <C-c> "+y
-	map <C-p> "+P
+vnoremap <C-c> "+y
+map <C-p> "+P
 
 " vim-airline settings
-	let g:airline_powerline_fonts = 1
-	let g:airline#extensions#tabline#enabled = 1
-	let g:airline#extensions#tabline#left_sep = ' '
-	let g:airline#extensions#tabline#left_alt_sep = '|'
-	let g:airline#extensions#tabline#formatter = 'default'
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:airline#extensions#tabline#formatter = 'default'
 
 " Save the file as sudo
 cmap w!! w !sudo tee > /dev/null %
-
 
