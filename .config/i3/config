@@ -42,7 +42,7 @@ bindsym $mod+w exec --no-startup-id ~/bin/randwall
 exec --no-startup-id dunst
 
 # font
-font pango:Inconsolata, DejaVu Sans Mono, Icons 11
+font pango:Inconsolata, DejaVu Sans Mono, Icons 9
 
 # start a terminal (h)
 bindsym $mod+Return split h; exec $term
@@ -249,7 +249,7 @@ assign [class="TelegramDesktop"] $ws5
 #
 #
 set $resize "Resize container (h) left (k) up (j) down (l) right"
-mode "Resize" {
+mode $resize {
     bindsym $mod+h resize shrink width 10px
     bindsym $mod+l resize grow width 10px
 
