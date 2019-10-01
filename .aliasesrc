@@ -36,3 +36,5 @@ alias ldmesg="dmesg --color=always | less -R"
 # clip
 alias xclip="xclip -selection clipboard"
 alias b='buku --suggest'
+alias rsync='rsync --info=progress2'
+

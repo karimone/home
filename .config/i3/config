@@ -26,7 +26,12 @@ set $window rofi -show window -show-icons
 
 # polybar
 exec_always --no-startup-id ~/bin/launch_polybar.sh
+
+# compton
 exec_always --no-startup-id ~/bin/launch_compton.sh
+
+# udiskie
+exec_always --no-startup-id udiskie --automount --notify --tray --use-udisks2
 
 # to get the transparency
 #bindsym $mod+x exec --no-startup-id xcompmgr -c -C -t-5 -l-5 -r4.2 -o.55 -f
