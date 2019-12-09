@@ -27,7 +27,7 @@ alias wcml="workon cml"
 alias scml="ssh karim@poem-isabel.bnr.la"
 
 # decentos
-alias decentos="ssh -i ~/.ssh/id_rsa.pub karim@159.69.124.75 -p 59595"
+alias decentos="ssh -i ~/.ssh/id_rsa karim@159.69.124.75 -p 59595"
 alias ldmesg="dmesg --color=always | less -R"
 
 
@@ -38,3 +38,10 @@ alias xclip="xclip -selection clipboard"
 alias b='buku --suggest'
 alias rsync='rsync --info=progress2'
 
+# yay
+#
+alias yay='yay --answerdiff None --answerclean All --answerupgrade None'
+alias au='yay -Syu'
+
+# abn
+alias abn="echo \"copied 82464314765 to the clipboard\"; echo \"82464314765\"  | xclip"

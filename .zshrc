@@ -161,3 +161,9 @@ source /usr/bin/virtualenvwrapper.sh
 typeset -U PATH path
 path=("$HOME/.local/bin" /other/things/in/path "$HOME/bin" "$path[@]")
 export PATH
+
+stop_all_dockers() {
+    docker stop $(docker ps -q)
+}
+
+source "/home/karim/.local/share/dephell/_dephell_zsh_autocomplete"

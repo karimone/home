@@ -108,7 +108,3 @@ do
     docker rm $d;
 done
 }
-
-
-
-

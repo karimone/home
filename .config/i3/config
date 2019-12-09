@@ -27,11 +27,22 @@ set $window rofi -show window -show-icons
 # polybar
 exec_always --no-startup-id ~/bin/launch_polybar.sh
 
+# copyq
+exec_always --no-startup-id copyq
+
+# pulse audio appled
+exec_always --no-startup-id ~/bin/launch_pa.sh
+
+# network manager applet
+exec_always --no-startup-id nm-applet
+
+exec_always --no-startup-id dropbox
+
 # compton
 exec_always --no-startup-id ~/bin/launch_compton.sh
 
 # udiskie
-exec_always --no-startup-id udiskie --automount --notify --tray --use-udisks2
+exec_always --no-startup-id ~/bin/launch_udiskie.sh
 
 # to get the transparency
 #bindsym $mod+x exec --no-startup-id xcompmgr -c -C -t-5 -l-5 -r4.2 -o.55 -f
@@ -56,10 +67,10 @@ bindsym $mod+Return split h; exec $term
 bindsym $mod+Shift+Return split v; exec $term
 
 # start opera (h)
-bindsym $mod+o split h; exec opera
+bindsym $mod+o split h; exec chromium
 
 # start opera (h)
-bindsym $mod+Shift+o split v; exec opera
+bindsym $mod+Shift+o split v; exec chromium
 
 # start ranger
 bindsym $mod+r split h; exec $term ranger
@@ -223,20 +234,21 @@ bindsym $mod+space focus mode_toggle
 bindsym $mod+a focus parent
 
 ## Floating
-floating_minimum_size 75 x 50
-floating_maximum_size 800 x 600
+#floating_minimum_size 1067 x 600
+floating_maximum_size 1366 x 768
 
 ## Assignments
 #
-assign [class="Opera"] $wsh1
+assign [class="Chromium"] $wsh1
 assign [class="jetbrains-pycharm"] $wsh2
-assign [class="firefox"] $wsh3
 
 for_window [class="Spotify"] move container to workspace $ws2
 assign [class="Franz"] $ws3
 assign [class="Slack"] $ws4
 assign [class="TelegramDesktop"] $ws5
 
+# make the terminal always big as the laptop screen
+for_window [class="kitty"] [floating] resize set 1368 768
 #
 # Scratchpad:
 #
@@ -244,11 +256,13 @@ assign [class="TelegramDesktop"] $ws5
 # You can send windows there and get them back later.
 
 # Move the currently focused window to the scratchpad
-#bindsym $mod+Shift+minus move scratchpad
+bindsym $mod+Shift+minus move scratchpad
+#bindsym $mod+h move scratchpad
 
 # Show the next scratchpad window or hide the focused scratchpad window.
 # If there are multiple scratchpad windows, this command cycles through them.
-#bindsym $mod+minus scratchpad show
+bindsym $mod+minus scratchpad show
+#bindsym $mod+Shift+h scratchpad show
 #
 # Resizing containers:
 #
@@ -350,7 +364,7 @@ bindsym $mod+Shift+n mode "$notify_management"
 ## Manual management of external displays
 set $mode_display Ext Screen (k) HDMI ON, (j) HDMI OFF
 mode "$mode_display" {
-    bindsym k exec --no-startup-id xrandr --output HDMI-1 --auto --above eDP-1, mode "default"
+    bindsym k exec --no-startup-id xrandr --output HDMI-1 --auto --right-of eDP-1, mode "default"
     bindsym j exec --no-startup-id xrandr --output HDMI-1 --auto --off, mode "default"
 
     # back to normal: Enter or Escape

@@ -4,6 +4,7 @@ set scrolloff=3
 set ignorecase smartcase
 set showmode
 set history=1000
+#set multiple-cursors
 
 " easy system clipboard copy/paste
 noremap <leader>y "*y
@@ -44,6 +45,14 @@ nnoremap <leader>w :action MoveEditorToOppositeTabGroup<cr>
 nnoremap <leader>o :action OptimizeImports<cr>
 nnoremap <leader>c :so ~/.ideavimrc<cr>:echo "ideavimrc reloaded"<cr>
 
+" zoom lever
+nnoremap <c--> :action EditorDecreaseFontSize<cr>
+nnoremap <c-=> :action EditorIncreaseFontSize<cr>
+
+" built in search looks better
+nnoremap <leader>f :action Find<cr>
+nnoremap <leader>r :action Replace<cr>
+
 nnoremap <a-s> :action SplitVertically<cr>:action CloseContent<cr>
 nnoremap <a-v> :action SplitHorizontally<cr>:action CloseContent<cr>
 
@@ -55,7 +64,7 @@ nnoremap <leader>[ :action GotoSuperMethod<cr>
 nnoremap <leader>u :action FindUsages<cr>
 nnoremap <leader>gt :action GotoTest<cr>
 nnoremap <leader>k :action HighlightUsagesInFile<cr>
-nnoremap <leader>r :action RunClass<cr>
+
 nnoremap \r :action RunClass<cr>
 nnoremap \R :action Run<cr>
 nnoremap \t :action Rerun<cr>
@@ -65,6 +74,7 @@ nnoremap \f :action RerunFailedTests<cr>
 nnoremap \d :action DebugClass<cr>
 nnoremap \D :action Debug<cr>
 nnoremap \c :action CheckStyleCurrentFileAction<cr>
+# nnoremap \e :action FileChooser<cr>
 
 " code refactoring
 nnoremap <a-r> :action RenameElement<cr>
@@ -89,8 +99,5 @@ nnoremap <c-i> :action Forward<cr>
 nnoremap g<c-o> <c-o>
 nnoremap g<c-i> <c-i>
 
-" built in search looks better
-nnoremap / :action Find<cr>
-nnoremap \ :action Replace<cr>
 " but preserve ideavim search
 nnoremap g/ /
