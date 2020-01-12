@@ -24,6 +24,8 @@ set $term kitty
 set $menu rofi -show drun -show-icons
 set $window rofi -show window -show-icons
 
+# TODO: create a launcher script
+
 # polybar
 exec_always --no-startup-id ~/bin/launch_polybar.sh
 
@@ -79,6 +81,12 @@ bindsym Ctrl+$mod+r split v; exec $term ranger
 # start gotop
 bindsym $mod+g split h; exec $term gotop -b -s
 bindsym Ctrl+$mod+g split v; exec $term gotop -b -s
+
+# start terminal as scratchpad (DOESN'T WORK)
+bindsym $mod+u exec --no-startup-id kitty --name kitty_scratchpad  --class kitty_scratchpad
+# for_window [instance="kitty_scratchpad"] floating enable; resize set 800 600; move scratchpad; scratchpad show; move position center;
+for_window [instance="kitty_scratchpad"] floating enable; resize shrink down 41px; move scratchpad; scratchpad show; move position center;
+
 
 # start config editor
 set $config_path "~/.config/i3/config"
@@ -235,7 +243,7 @@ bindsym $mod+a focus parent
 
 ## Floating
 #floating_minimum_size 1067 x 600
-floating_maximum_size 1366 x 768
+#floating_maximum_size 1366 x 768
 
 ## Assignments
 #
@@ -247,8 +255,6 @@ assign [class="Franz"] $ws3
 assign [class="Slack"] $ws4
 assign [class="TelegramDesktop"] $ws5
 
-# make the terminal always big as the laptop screen
-for_window [class="kitty"] [floating] resize set 1368 768
 #
 # Scratchpad:
 #
@@ -302,6 +308,7 @@ bindsym $mod+Shift+r mode $resize
 
 # restart i3-msg
 bindsym $mod+i exec i3-msg restart
+bindsym Shift+$mod+i exec i3-msg reload
 
 # lock
 bindsym $mod+z exec --no-startup-id i3lock-fancy-dualmonitor
@@ -362,10 +369,13 @@ mode "$notify_management" {
 bindsym $mod+Shift+n mode "$notify_management"
 
 ## Manual management of external displays
-set $mode_display Ext Screen (k) HDMI ON, (j) HDMI OFF
+set $mode_display External monitor: (k) above, (j) below, (h) right, (l) left,  (d) disable
 mode "$mode_display" {
-    bindsym k exec --no-startup-id xrandr --output HDMI-1 --auto --right-of eDP-1, mode "default"
-    bindsym j exec --no-startup-id xrandr --output HDMI-1 --auto --off, mode "default"
+    bindsym h exec --no-startup-id xrandr --output HDMI-1 --auto --left-of eDP-1, mode "default"
+    bindsym j exec --no-startup-id xrandr --output HDMI-1 --auto --below eDP-1, mode "default"
+    bindsym k exec --no-startup-id xrandr --output HDMI-1 --auto --above eDP-1, mode "default"
+    bindsym l exec --no-startup-id xrandr --output HDMI-1 --auto --right-of eDP-1, mode "default"
+    bindsym d exec --no-startup-id xrandr --output HDMI-1 --auto --off, mode "default"
 
     # back to normal: Enter or Escape
     bindsym Return mode "default"

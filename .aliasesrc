@@ -10,6 +10,7 @@ alias vim="nvim"
 alias vi="nvim"
 alias mutt="neomutt"
 alias sub="subliminal download -l en"
+alias tmux="tmux -f ~/.config/tmux/config"
 
 # dirs
 alias my="cd ~/Documents/personal/; vim"
@@ -21,10 +22,6 @@ alias ec-dev-log="ssh bsure-develop@bsure-develop.expensecheck.com.au tail -f de
 alias ec-qa-log="ssh bsure-qa@bsure-qa.expensecheck.com.au tail -f qa.log"
 alias ec-qa-log-dump="ec; echo 'downloading on _logs/qa.log ...'; ssh bsure-qa@bsure-qa.expensecheck.com.au cat qa.log > _logs/qa.log && vim _logs/qa.log"
 
-# CML
-alias cml="cd ~/Code/Work/cml"
-alias wcml="workon cml"
-alias scml="ssh karim@poem-isabel.bnr.la"
 
 # decentos
 alias decentos="ssh -i ~/.ssh/id_rsa karim@159.69.124.75 -p 59595"
@@ -45,3 +42,4 @@ alias au='yay -Syu'
 
 # abn
 alias abn="echo \"copied 82464314765 to the clipboard\"; echo \"82464314765\"  | xclip"
+

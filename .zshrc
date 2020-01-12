@@ -155,6 +155,7 @@ source ~/.aliasesrc
 
 # virtualenvwrapper
 export WORKON_HOME=~/.venvs
+export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python
 source /usr/bin/virtualenvwrapper.sh
 
 # path
