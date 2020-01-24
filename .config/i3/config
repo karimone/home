@@ -16,6 +16,10 @@ set $down j
 set $up k
 set $right l
 
+# cycle to windows
+bindsym $mod+Tab workspace back_and_forth
+
+
 # Set the terminal
 set $term kitty
 #set $term i3-sensible-terminal
