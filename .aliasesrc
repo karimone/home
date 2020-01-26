@@ -23,8 +23,6 @@ alias ec-qa-log="ssh bsure-qa@bsure-qa.expensecheck.com.au tail -f qa.log"
 alias ec-qa-log-dump="ec; echo 'downloading on _logs/qa.log ...'; ssh bsure-qa@bsure-qa.expensecheck.com.au cat qa.log > _logs/qa.log && vim _logs/qa.log"
 
 
-# decentos
-alias decentos="ssh -i ~/.ssh/id_rsa karim@159.69.124.75 -p 59595"
 alias ldmesg="dmesg --color=always | less -R"
 
 

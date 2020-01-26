@@ -305,6 +305,17 @@ hi! EndOfBuffer ctermbg=NONE ctermfg=NONE guibg=#17252c guifg=#17252c
 " Customize NERDTree directory
 hi! NERDTreeCWD guifg=#99c794
 
+" ============= Bash
+augroup filetype_bash
+    autocmd!
+    autocmd FileType sh nnoremap <F5> :w !sh<CR>
+    au FileType sh let g:sh_fold_enabled=5
+    au FileType sh let g:is_bash=1
+    au FileType sh set foldmethod=syntax
+augroup END
+"
+" ============= END
+
 " ============================================================================ "
 " ===                             KEY MAPPINGS                             === "
 " ============================================================================ "
