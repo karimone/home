@@ -92,6 +92,7 @@ plugins=(archlinux
 	sudo 
     vi-mode
 #	zsh-syntax-highlighting
+    nvm
 	   
 )
 # /!\ zsh-syntax-highlighting and then zsh-autosuggestions must be at the end
@@ -160,11 +161,18 @@ source /usr/bin/virtualenvwrapper.sh
 
 # path
 typeset -U PATH path
-path=("$HOME/.local/bin" /other/things/in/path "$HOME/bin" "$path[@]")
+path=("$HOME/.local/bin" "$HOME/.node_modules/bin" "$HOME/bin" "$path[@]")
 export PATH
 
 stop_all_dockers() {
     docker stop $(docker ps -q)
 }
+
+# node modules
+# disable because we use nvm
+# export npm_config_prefix=~/.node_modules
+# Set up Node Version Manager
+source /usr/share/nvm/init-nvm.sh
+
 
 source "/home/karim/.local/share/dephell/_dephell_zsh_autocomplete"

@@ -36,7 +36,6 @@ alias rsync='rsync --info=progress2'
 # yay
 #
 alias yay='yay --answerdiff None --answerclean All --answerupgrade None'
-alias au='yay -Syu'
 
 # abn
 alias abn="echo \"copied 82464314765 to the clipboard\"; echo \"82464314765\"  | xclip"
