@@ -1,0 +1,6 @@
+udisks_version: 0
+menu: "nested"
+tray: true
+automount: true
+notify: true
+file_manager: ranger
