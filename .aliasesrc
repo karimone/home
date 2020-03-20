@@ -11,6 +11,7 @@ alias vi="nvim"
 alias mutt="neomutt"
 alias sub="subliminal download -l en"
 alias tmux="tmux -f ~/.config/tmux/config"
+alias mv="mv -v"
 
 # dirs
 alias my="cd ~/Documents/personal/; vim"
@@ -39,4 +40,7 @@ alias yay='yay --answerdiff None --answerclean All --answerupgrade None'
 
 # abn
 alias abn="echo \"copied 82464314765 to the clipboard\"; echo \"82464314765\"  | xclip"
+
+# docker
+alias diesel-docker="docker system prune -af --volumes"
 

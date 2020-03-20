@@ -161,7 +161,7 @@ source /usr/bin/virtualenvwrapper.sh
 
 # path
 typeset -U PATH path
-path=("$HOME/.local/bin" "$HOME/.node_modules/bin" "$HOME/bin" "$path[@]")
+path=("$HOME/.local/bin" "$HOME/.node_modules/bin" "$HOME/local/flutter/bin" "$HOME/bin" "$path[@]")
 export PATH
 
 stop_all_dockers() {

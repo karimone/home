@@ -87,9 +87,9 @@ bindsym $mod+g split h; exec $term gotop -b -s
 bindsym Ctrl+$mod+g split v; exec $term gotop -b -s
 
 # start terminal as scratchpad (DOESN'T WORK)
-bindsym $mod+u exec --no-startup-id kitty --name kitty_scratchpad  --class kitty_scratchpad
+bindsym $mod+u exec --no-startup-id kitty --name kitty_scratchpad  --class kitty_scratchpad tmux -f /home/karim/.config/tmux/config
 # for_window [instance="kitty_scratchpad"] floating enable; resize set 800 600; move scratchpad; scratchpad show; move position center;
-for_window [instance="kitty_scratchpad"] floating enable; resize shrink down 41px; move scratchpad; scratchpad show; move position center;
+for_window [class="kitty_scratchpad"] floating enable; resize shrink down 200px; resize shrink right 100px; move scratchpad; scratchpad show; move position center;
 
 
 # start config editor
